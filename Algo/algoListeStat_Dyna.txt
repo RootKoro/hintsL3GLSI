@@ -1,0 +1,188 @@
+Algorithme: listeStatique
+Constante 
+	tailleMax 50 
+Type 
+	Personne=Enregistrement
+		chaine nom
+		chaine prenom
+		entier age
+	FinEnregistrement Personne
+	listeSt=Enregistrement
+		Personne personnes[tailleMax]
+		entier longueur
+	FinEnregistrement listeSt
+
+fonction listevide(): listeSt
+variable 
+	listeSt l
+debut
+	l.longueur <-- 0
+	retourner l
+fin
+
+fonction ieme(listeSt l, entier posi): Personne
+debut 
+	SI posi < l.longueur alors
+		retourner l.personnes[posi]
+	SINON 
+		retourner null
+fin
+
+fonction longueur(listeSt l): entier
+debut
+	retourner l.longueur
+fin
+
+fonction inserer(listeSt l, entier pos, Personne p): listeSt
+variable
+	entier i
+debut
+	l.longueur <-- l.longueur + 1
+	Pour i allant de l.longueur a pos pas -1 faire
+		l.personnes[i] <-- l.personnes[i-1]
+	FPour 
+	l.personnes[pos] <-- p
+	retourner l
+fin
+
+fonction supprimer(listeSt l, entier pos): listeSt
+variable
+	entier i
+debut
+	Pour i allant de pos a l.longueur-1 pas 1 faire
+		l.personnes[i] <-- l.personnes[i+1]
+	FPour 
+	l.longueur <-- l.longueur -1
+	retourner l
+fin
+
+-------------------------Liste Dynamique--------------------
+
+Type 
+	Personne=Enregistrement
+		chaine nom
+		chaine prenom
+		entier age
+	FinEnregistrement Personne
+
+	listeD=Enregistrement
+		Personne personne
+		listeD* suivant
+	FinEnregistrement listeD
+
+fonction listevide(): listeD*
+debut 
+	retourner null
+fin 
+fonction listevide(): listeD*
+variable
+	listeD* l
+debut
+	l <--- null
+	retourner null
+fin
+
+
+
+fonction cons(listeD* l, Personne p): listeD*
+variable 
+	listeD* nouveau 
+debut
+	//allocation de nouveau
+	nouveau<---allouer(listeD)
+	nouveau->personne <--- p
+	nouveau->suivant <--- l
+	l <--- nouveau
+	retourner l
+fin
+
+
+
+function premier(listeD* l): Personne
+variable
+	Personne p
+debut
+	SI l!= null 
+		p <--- l-> personne 
+ 	SINON p <--- null
+	retourner p
+fin
+  
+
+
+function fin(listeD* l):
+variable 
+	listeD* nouveau
+debut
+	nouveau <--- l
+	l <--- l ->suivant
+	désallouer(nouveau)
+	retourner l
+fin
+ 
+
+fonction contenu (listeD* l, entier position): Personne
+debut
+	i <--- 0	
+	TANTQUE l!= null
+	i <--- i+1 
+	SI position = i
+	retourner l->personne 
+	FSI
+	l <--- l-> suivant
+	FINTANTQUE 
+	retourner null
+fin
+
+-----------------------------------FILES------------------------------------
+Type 
+	Personne=Enregistrement
+		chaine nom
+		chaine prenom
+		entier age
+	FinEnregistrement Personne
+	listeSt=Enregistrement
+		Personne personnes[tailleMax]
+		entier longueur
+	FinEnregistrement listeSt
+	file=Enregistrement 
+		listeD* queue
+		listeD* tête
+	FinEnregistrement
+// on enfile à la queue
+
+enfiler(file* f, Personne p): file*
+variable 
+	listeD* nouveau 
+debut
+	//allocation de nouveau
+	nouveau<---allouer(listeD)
+	nouveau->personne <--- p
+	f->queue->suivant <--- nouveau
+	f-> queue <--- nouveau
+	retourner f
+fin
+
+// on défile à la tête
+
+defiler(file* f): file*
+variable
+	listeD* t
+debut
+	t<--- f->tête
+	f->tête<---f->tête->suivant
+	desallouer(t)
+	retourner f 
+Fin
+
+
+
+
+
+
+
+
+
+
+
+

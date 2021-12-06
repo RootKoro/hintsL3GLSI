@@ -1,0 +1,85 @@
+Exo1s
+1.a. nbOccurence : liste x element ---> entier
+
+1.b.
+FONCTION nbOccurence (liste L , Etudiant e) : entier
+    occurence : ENTIER
+    etu : list
+DEBUT
+    occurence <-- 0
+
+    REPETER
+        etu <---- L
+        SI etu.etudiant.nom = e.nom ET etu.etudiant.prenom=e.prenom ET etu.etudiant.age= e.age  
+            occurence <-- occurence+1
+        FIN SI
+        etu <---- etu. * suivant
+    JUSQUA etu.suivant = null
+
+    RETOURNER occurence
+FIN FONCTION
+
+2.a.renverseListe : list x entier ----> list
+
+2.b
+FONCTION renverseListe (list L) : list
+    reverse : list
+DEBUT
+    reverse.longueur = L.longueur
+    POUR i DE l.longueur A 0 PAS DE -1 FAIRE
+        reverse.et[l.longueur - i] = L.et[i]
+    FIN POUR
+FIN FONCTION
+
+
+Exo 2
+
+1. voir cours
+
+2. voir cours
+
+3.1
+FONCTION pileVide() : pileStatique
+    nouv : pileStatique
+DEBUT
+    nouv.longueur = 0;
+    RETOURNER nouv;
+FIN FONCTION
+
+3.2
+FONCTION estVide(pileStatique pile) : boolean
+DEBUT
+        SI (longueur = 0)
+            RETOURNER VRAI
+        SINON
+            RETOURNER FAUX
+FIN FONCTION
+
+3.3
+FONCTION empiler (pileStatique pile, element e) : pileStatique
+DEBUT
+    SI (pile.longueur < pile.Taille)
+        pile.longueur <- pile.longueur + 1
+        pile.el[longueur] <- e
+    FIN SI
+    RETOURNER pile
+FIN FONCTION
+
+3.4
+FONCTION depiler (pileStatique pile) : pileStatique
+DEBUT
+    SI (pile.longueur > 0)
+        pile.longueur <- pile.longueur - 1
+    FIN SI
+    RETOURNER pile
+FIN FONCTION
+
+3.5
+FONCTION sommet(pileStatique pile) : element
+DEBUT
+    SI(pile.longueur > 0)
+        RETOURNER pile.el[longueur]
+    SINON
+        RETOURNER null
+    FIN SI
+FIN FONCTION

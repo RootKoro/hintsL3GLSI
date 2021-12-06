@@ -1,0 +1,7 @@
+{
+  "name": "koro_meetings",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

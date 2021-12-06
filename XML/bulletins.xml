@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE bulletins SYSTEM "bulletins.dtd">
+<faculte>
+  <etudiant id="1">
+    <nom>MARONE</nom>
+    <prenom>ASTOU</prenom>
+    <modules>
+      <nom_module note=" 13">oracle</nom_module>
+      <nom_module note=" 19">programmation</nom_module>
+       <nom_module note="14 ">reseau</nom_module>
+    </modules>
+  </etudiant>
+
+  <etudiant id="2">
+    <nom>NDIAYE</nom>
+    <prenom>DABA</prenom>
+    <modules>
+      <nom_module note="15"> oracle </nom_module>
+      <nom_module note="11"> programmation </nom_module>
+      <nom_module note="13"> reseau </nom_module>
+    </modules>
+  </etudiant>
+</faculte>

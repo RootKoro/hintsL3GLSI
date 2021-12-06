@@ -1,0 +1,105 @@
+#header{
+	border: 2px solid ;
+	border-color: blue ;
+}
+
+#menu {
+	border: 2px solid ;
+	border-color: blue ;
+	width: 50% ;
+	margin-left: 50% ;
+}
+
+#menu p{
+	color:blue;
+}
+
+#gauche{
+	border: 2px solid ;
+	border-color: blue ;
+	width: 25% ;
+}
+
+#droite{
+	border: 2px solid ;
+	border-color: blue ;
+	width: 25% ;
+}
+
+#milieu{
+	border: 2px solid ;
+	border-color: blue ;
+	width: 50% ;
+}
+
+section{
+	border: 2px solid ;
+	border-color: blue ;
+	margin: auto;
+}
+
+#section1
+{
+	width: 15% ;
+	height: 400px;
+	display: inline-block;
+}
+
+#section2
+{
+	width: 50% ;
+	display: inline-block;
+	height: 400px;
+}
+
+#section3
+{
+	width: 24% ;
+	display: inline-block;
+	height: 400px;
+}
+
+#section2-1
+{
+	border: 2px solid ;
+	border-color: black ;
+	
+
+}
+
+#section2-1
+{
+	border: 2px solid ;
+	border-color: black ;
+	width: 100%;
+	display: inline-block;
+}
+
+#section2-1-2
+{
+	border: 2px solid ;
+	border-color: green ;
+	width:15% ;
+
+	}
+
+#section3-1{
+	border: 2px solid ;
+	border-color: black ;
+	
+
+}
+
+footer{
+	border: 2px solid ;
+	border-color: blue ;
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE magasin SYSTEM "magasin.dtd">
+<magasin>
+  <facture num="1">
+    <personne>Jean Dior</personne>
+    <montant>100.00f</montant>
+    <raison>Achat d'ordinateur</raison>
+  </facture>
+</magasin>

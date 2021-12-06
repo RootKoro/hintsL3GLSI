@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Commestibles [
+<!ELEMENT Commestibles (Commestible*)>
+<!ELEMENT Commestible (type)>
+<!ELEMENT type (#PCDATA | nom | quantite)*>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT quantite (#PCDATA)>
+<!ATTLIST Commestible commestible_id ID #REQUIRED>
+]>
+<Commestibles>
+  <Commestible commestible_id="c1">
+    <type>Fruit
+      <nom>Pomme</nom>
+      <quantite>100kg</quantite>
+    </type>
+  </Commestible>
+  <Commestible commestible_id="c2">
+	  <type>Legume
+      <nom>Pomme de terre</nom>
+      <quantite>120kg</quantite>
+    </type>
+  </Commestible>
+  <Commestible commestible_id="c3">
+	  <type>Sucreries
+      <nom>bonbons</nom>
+      <quantite>10 paquets</quantite>
+    </type>
+  </Commestible>
+  <Commestible commestible_id="c4">
+	  <type>Viande
+      <nom>Cuisse de poulet</nom>
+      <quantite>200pcs</quantite>
+    </type>
+  </Commestible>
+</Commestibles>

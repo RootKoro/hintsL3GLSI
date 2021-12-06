@@ -1,0 +1,51 @@
+Algorithme listeStatique
+	
+	Constante
+		Taille = 20
+		
+	Type
+		Etudiant
+			chaine nom, prenom
+			entier age
+		FinTypeEtudiant
+		
+		listeStatique
+			Etudiant[Taille] listeEt
+			entier longueur
+		FinTypelisteStatique
+		
+	//Implementation recursivement
+	fonction listeVide(): listeStatique
+	Variable 
+		listeStatique list
+	Debut
+		list.longueur=0
+		retourner list
+	FinFonction
+	
+	fonction cons(listeStatique l, Etudiant et):listeStatique
+	Debut
+		l.longueur <-- l.longueur+1
+		l.listeEt[l.longueur] <-- et
+		retourner l
+	FinFonction
+		
+	fonction fin(listeStatique l) : listeStatique 
+	debut
+		SI l.longueur > 0 ALORS 
+			l.longueur <-- l.longueur - 1
+			retourner l
+		SINON
+			ECRIRE("La liste est vide")
+			retourner l
+		FSI
+	finFonction
+
+	fonction premier(listeStatique l) : Etudiant
+	debut
+		SI l.longueur > 0 ALORS
+			retourner l.listeEt[l.longueur] 
+		FSI
+		ECRIRE("La liste est vide")
+		retourner null
+	finFonction

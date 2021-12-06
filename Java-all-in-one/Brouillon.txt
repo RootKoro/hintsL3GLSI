@@ -1,0 +1,260 @@
+if (args[0].contentEquals("-h") || args[0].contentEquals("--help")) {
+    System.out.println(crypteOptionMessage);
+    System.out.println(DecrypteOptionMessage);
+    System.out.println(helpMessage);
+} else {
+    if (args.length == 2)
+        if (args[0].contentEquals("-c"))
+            crypter(args[1], 13);
+        else if (args[0].contentEquals("-d"))
+            decrypter(args[1], 13);
+        else
+            System.out.println(nonOptionMessage);
+    else if (args.length == 4) {
+        try {
+            if (args[0].contentEquals("-c") && args[2].contentEquals("-k"))
+                crypter(args[1], Integer.parseInt(args[3]));
+            else if (args[0].contentEquals("-d") && args[2].contentEquals("-k"))
+                decrypter(args[1], Integer.parseInt(args[3]));
+            else
+                System.out.println(nonOptionMessage);
+        } catch (NumberFormatException e) {
+            System.out.println("Veillez a entrer un format correcte de nombre entier !");
+        } catch (Exception e) {
+            System.out.println(helpMessage);
+        }
+    } else
+        System.out.println(helpMessage);
+}
+
+if (args.length != 0) {
+    if (args.length == 1 && (args[0].contentEquals("-h") || args[0].contentEquals("--help"))) {
+        System.out.println(crypteOptionMessage);
+        System.out.println(DecrypteOptionMessage);
+        System.out.println(helpMessage);
+    } else if (args.length > 1) {
+        boolean found = false;
+        String message = "";
+        int i = 1;
+        if (args[0].contentEquals("-c")) {
+            for (; i < args.length && !(args[i].contentEquals("-k"));)
+                message += args[i++];
+                if(message.length() > 0)
+                if(args[i].contentEquals("-k"))
+                try{
+                    int key = Integer.parseInt(args[i]);
+
+                }
+        }
+    }
+} else {
+    System.out.println(crypteOptionMessage);
+    System.out.println(DecrypteOptionMessage);
+    System.out.println(helpMessage);
+}
+
+for(tel : tels){
+    Matcher matcher=pattern.matcher(tel);
+    System.out.println(tel + " : " + matcher.matches());
+}
+
+Pattern pattern = new Pattern.compile(regex);
+
+
+int randomPlayer = random.nextInt(4);
+if (randomPlayer == 1) {
+    if (player1.getCarteCompteur < 14) {
+        player1.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player2.getCarteCompteur < 14) {
+        player2.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player3.getCarteCompteur < 14) {
+        player3.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else {
+        player4.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    }
+} else if (randomPlayer == 2) {
+    if (player2.getCarteCompteur < 14) {
+        player2.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player3.getCarteCompteur < 14) {
+        player3.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player4.getCarteCompteur < 14) {
+        player4.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else {
+        player1.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    }
+} else if (randomPlayer == 3) {
+    if (player3.getCarteCompteur < 14) {
+        player3.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player4.getCarteCompteur < 14) {
+        player4.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player1.getCarteCompteur < 14) {
+        player1.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else {
+        player2.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    }
+} else {
+    if (player4.getCarteCompteur < 14) {
+        player4.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player1.getCarteCompteur < 14) {
+        player1.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else if (player2.getCarteCompteur < 14) {
+        player2.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    } else {
+        player3.ajoutCarte(cartes.get(i));
+        cartes.remove(i);
+    }
+}
+
+
+
+
+if (randomPlayer == 1)
+    player1.jouerEnPremier();
+else if (randomPlayer == 2)
+    player2.jouerEnPremier();
+else if (randomPlayer == 3)
+    player3.jouerEnPremier();
+else
+    player4.jouerEnPremier();
+
+
+
+int randomPlayer = random.nextInt(4);
+if (randomPlayer == 1) {
+    System.out.print(player1.getNom() + " : ");
+    player1.jouerEnPremier().printOut();
+} else if (randomPlayer == 2) {
+    System.out.print(player2.getNom() + " : ");
+    player2.jouerEnPremier().printOut();
+} else if (randomPlayer == 3) {
+    System.out.print(player3.getNom() + " : ");
+    player3.jouerEnPremier().printOut();
+} else {
+    System.out.print(player4.getNom() + " : ");
+    player4.jouerEnPremier().printOut();
+}
+
+
+
+System.out.print(player1.getNom() + " : ");
+carte = player1.play(carte.getSigne());
+carte.printOut();
+
+System.out.print(player2.getNom() + " : ");
+carte = player2.play(carte.getSigne());
+carte.printOut();
+
+System.out.print(player3.getNom() + " : ");
+carte = player3.play(carte.getSigne());
+carte.printOut();
+
+System.out.print(player4.getNom() + " : ");
+carte = player4.play(carte.getSigne());
+carte.printOut();
+
+
+
+
+        System.out.print(player1.getNom() + " : ");
+        Carte carte = new Carte(player1.jouerEnPremier());
+        carte.printOut();
+
+        System.out.print(player2.getNom() + " : ");
+        carte = player2.play(carte.getSigne());
+        carte.printOut();
+
+        System.out.print(player3.getNom() + " : ");
+        carte = player3.play(carte.getSigne());
+        carte.printOut();
+
+        System.out.print(player4.getNom() + " : ");
+        carte = player4.play(carte.getSigne());
+        carte.printOut();
+
+        for (int i = 0; i < 14; i++) {
+            System.out.print(player1.getNom() + " : ");
+            carte = player1.play(carte.getSigne());
+
+            if (!(carte.equals(null)))
+                carte.printOut();
+            else
+                break;
+
+            System.out.print(player2.getNom() + " : ");
+            carte = player2.play(carte.getSigne());
+
+            if (!(carte.equals(null)))
+                carte.printOut();
+            else
+                break;
+
+            System.out.print(player3.getNom() + " : ");
+            carte = player3.play(carte.getSigne());
+
+            if (!(carte.equals(null)))
+                carte.printOut();
+            else
+                break;
+
+            System.out.print(player4.getNom() + " : ");
+            carte = player4.play(carte.getSigne());
+
+            if (!(carte.equals(null)))
+                carte.printOut();
+            else
+                break;
+        }
+
+
+
+        for (int i = 0; i < 13; i++) {
+            System.out.print(player1.getNom() + " : ");
+            Carte carte = new Carte(player1.jouerEnPremier());
+            carte.printOut();
+
+            System.out.print(player2.getNom() + " : ");
+            carte = player2.jouerEnPremier();
+            carte.printOut();
+
+            System.out.print(player3.getNom() + " : ");
+            carte = player3.jouerEnPremier();
+            carte.printOut();
+
+            System.out.print(player4.getNom() + " : ");
+            carte = player4.jouerEnPremier();
+            carte.printOut();
+        }
+
+    public static void main(String[] args) {
+        ArrayList<String> myStrings = new ArrayList<>();
+        myStrings.add("Popo");
+        myStrings.add("pipi");
+        myStrings.add("papa");
+        myStrings.add("erhbe");
+
+        myStrings.remove(2);
+        System.out.println(myStrings.get(1));
+    }
+
+
+        for (int i = 0; i < 13; i++) {
+            player1.jouerEnPremier().printOut();
+            player2.jouerEnPremier().printOut();
+            player3.jouerEnPremier().printOut();
+            player4.jouerEnPremier().printOut();
+        }

@@ -1,0 +1,21 @@
+
+signature
+
+    types
+        vecteur
+
+        utilise
+            entier , element , boolean
+    
+    operations
+
+        vect : entier x entier ----> vecteur
+        ième: vecteur x entier --> element
+        estinitialisé: vecteur x entier ---> boolean
+        modifième: vecteur x entier x element ----> vecteur
+        supp : vecteur x entier -----> vecteur
+        borneinf : vecteur ---------> entier
+        bornesup : vecteur ---------> entier
+
+    préconditions
+        ième(v , i) existe si et seulement si estinitialisé(v , i) = vrai

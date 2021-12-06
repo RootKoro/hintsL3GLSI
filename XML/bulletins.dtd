@@ -1,0 +1,8 @@
+<!ELEMENT faculte (etudiant+)>
+<!ELEMENT etudiant (nom , prenom , modules)>
+<!ATTLIST etudiant id CDATA #REQUIRED>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT prenom (#PCDATA)>
+<!ELEMENT modules (nom_module+)>
+<!ELEMENT nom_module (#PCDATA)>
+<!ATTLIST nom_module note CDATA #REQUIRED>

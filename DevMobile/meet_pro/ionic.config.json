@@ -1,0 +1,7 @@
+{
+  "name": "meet_pro",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

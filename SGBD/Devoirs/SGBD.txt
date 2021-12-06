@@ -1,0 +1,450 @@
+
+SQL*Plus: Release 18.0.0.0.0 - Production on Mar. FÚvr. 23 08:38:42 2021
+Version 18.4.0.0.0
+
+Copyright (c) 1982, 2018, Oracle.  All rights reserved.
+
+Entrez le nom utilisateur : System
+Entrez le mot de passe :
+Heure de la derniÞre connexion rÚussie : Lun. FÚvr. 22 2021 13:55:37 +00:00
+
+ConnectÚ Ó :
+Oracle Database 18c Express Edition Release 18.0.0.0.0 - Production
+Version 18.4.0.0.0
+
+SQL> create user c##geom identified by passer default tablespace users quota 100M on users;
+
+Utilisateur crÚÚ.
+
+SQL> grant connect,Resource to c##geom;
+
+Autorisation de privilÞges (GRANT) acceptÚe.
+
+SQL> connect c##geom/passer;
+ConnectÚ.
+SQL> create type t_point as OBJECT( X int , Y int );
+  2  /
+
+Type crÚÚ.
+
+SQL> create table Points of t_point;
+
+Table crÚÚe.
+
+SQL> create table Triangles( p1 t_point,p2 t_point,p3 t_point);
+
+Table crÚÚe.
+
+SQL> desc Points;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ X                                                  NUMBER(38)
+ Y                                                  NUMBER(38)
+
+SQL> desc Triangles;
+ Nom                                       NULL ?   Type
+ ----------------------------------------- -------- ----------------------------
+ P1                                                 T_POINT
+ P2                                                 T_POINT
+ P3                                                 T_POINT
+
+SQL> insert into points Values(0,0);
+
+1 ligne crÚÚe.
+
+SQL> insert into points values(t_point(1,1));
+
+1 ligne crÚÚe.
+
+SQL> insert into triangles values(
+  2  t_point(1,1) , t_point(2,1) , t_point(0,0));
+
+1 ligne crÚÚe.
+
+SQL> select * from points;
+
+         X          Y
+---------- ----------
+         0          0
+         1          1
+
+SQL> select * from triangles;
+
+P1(X, Y)
+--------------------------------------------------------------------------------
+P2(X, Y)
+--------------------------------------------------------------------------------
+P3(X, Y)
+--------------------------------------------------------------------------------
+T_POINT(1, 1)
+T_POINT(2, 1)
+T_POINT(0, 0)
+
+
+SQL> select t.p1.X , t.p1.Y from triangles t;
+
+      P1.X       P1.Y
+---------- ----------
+         1          1
+
+SQL> select p1.X , p1.Y from triangles;
+select p1.X , p1.Y from triangles
+              *
+ERREUR Ó la ligne 1 :
+ORA-00904: "P1"."Y" : identificateur non valide
+
+
+SQL> select triangles.p1.X , triangles.p1.Y from triangles;
+select triangles.p1.X , triangles.p1.Y from triangles
+                        *
+ERREUR Ó la ligne 1 :
+ORA-00904: "TRIANGLES"."P1"."Y" : identificateur non valide
+
+
+SQL> select t.p1.X , t.p1.Y from triangles t;
+
+      P1.X       P1.Y
+---------- ----------
+         1          1
+
+SQL> alter type t_point not final;
+alter type t_point not final
+*
+ERREUR Ó la ligne 1 :
+ORA-22312: vous devez indiquer l'option CASCADE ou INVALIDATE
+
+
+SQL> alter type t_point not final cascade;
+
+Type modifiÚ.
+
+SQL> create type t_cercle under t_point(rayon integer);
+  2  /
+
+Type crÚÚ.
+
+SQL> create table cercles of t_cercle;
+
+Table crÚÚe.
+
+SQL> insert into cercles values(
+  2  t_cercle(0,0,5));
+
+1 ligne crÚÚe.
+
+SQL> create type t_cercle2 as object (centre t_point,rayon integer);
+  2  /
+
+Type crÚÚ.
+
+SQL> create table cercles2 of t_cercle2;
+
+Table crÚÚe.
+
+SQL> insert into cercles2 values(
+  2  t_cercle2(t_point(0,0),5));
+
+1 ligne crÚÚe.
+
+SQL> select C.rayon , C.centre.X , C.centre.Y from cercles2 C;
+
+     RAYON   CENTRE.X   CENTRE.Y
+---------- ---------- ----------
+         5          0          0
+
+SQL> create type t_cercles3 as object(
+  2  centre ref t_point,
+  3  rayon int );
+  4  /
+
+Type crÚÚ.
+
+SQL> select ref(p) from points p;
+
+REF(P)
+--------------------------------------------------------------------------------
+00002802099149AB4D6A914F3DADDF2EF6AAEFF5089C32965628554E58BD555041CEA79AD001C000
+840000
+
+0000280209C92FB78178D4486D84F82F2B2ED95A9F9C32965628554E58BD555041CEA79AD001C000
+840001
+
+
+SQL> select x,y, ref(p) from points p;
+
+         X          Y
+---------- ----------
+REF(P)
+--------------------------------------------------------------------------------
+         0          0
+00002802099149AB4D6A914F3DADDF2EF6AAEFF5089C32965628554E58BD555041CEA79AD001C000
+840000
+
+         1          1
+0000280209C92FB78178D4486D84F82F2B2ED95A9F9C32965628554E58BD555041CEA79AD001C000
+840001
+
+
+SQL> create table cercles3 of t_cercle3;
+create table cercles3 of t_cercle3
+                         *
+ERREUR Ó la ligne 1 :
+ORA-00902: type de donnÚes non valide
+
+
+SQL> create table cercles3 of t_cercles3;
+
+Table crÚÚe.
+
+SQL> insert into cercles3 values(
+  2  t_cercles3((select ref(p) from points p where p.x = 0 and p.y = 0))
+  3  5);
+5)
+*
+ERREUR Ó la ligne 3 :
+ORA-00917: virgule absente
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into cercles3 values(
+  2  t_cercles3((select ref(p) from points p where p.x = 0 and p.y = 0),
+  3* 5))
+SQL> /
+
+1 ligne crÚÚe.
+
+SQL> select * from cercles3;
+
+CENTRE
+--------------------------------------------------------------------------------
+     RAYON
+----------
+00002202089149AB4D6A914F3DADDF2EF6AAEFF5089C32965628554E58BD555041CEA79AD0
+         5
+
+
+SQL> select C.rayon , C.centre.x , C.centre.y from cercles3 C;
+
+     RAYON   CENTRE.X   CENTRE.Y
+---------- ---------- ----------
+         5          0          0
+
+SQL> create type t_personne as object (
+  2  Nom varchar(20), Prenom varchar(20));
+  3  /
+
+Type crÚÚ.
+
+SQL> create type t_terrain as object(
+  2  NTF integer , valeur float , position ref t_cercles3,
+  3  propietaire ref t_personne);
+  4  /
+
+Type crÚÚ.
+
+SQL> create table terrains of t_terrain;
+
+Table crÚÚe.
+
+SQL> create tables personnes of t_personne;
+create tables personnes of t_personne
+       *
+ERREUR Ó la ligne 1 :
+ORA-00901: commande CREATE non valide
+
+
+SQL> create table personnes of t_personne;
+
+Table crÚÚe.
+
+SQL> insert into personnes values(
+  2  t_personne("Sow","Idy"));
+t_personne("Sow","Idy"))
+                 *
+ERREUR Ó la ligne 2 :
+ORA-00984: un nom de colonne n'est pas autorisÚ ici
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into personnes values(
+  2* t_personne('Sow','Idy'))
+SQL> /
+
+1 ligne crÚÚe.
+
+SQL> insert into terrains values(
+  2  t_terrain(1,12000,
+  3  (select ref (C) into cercles3 C where C.rayon = 5) ,
+  4  (select ref (P) into personnes P where P.nom = 'Sow'));
+(select ref (C) into cercles3 C where C.rayon = 5) ,
+                *
+ERREUR Ó la ligne 3 :
+ORA-01744: INTO inadÚquat
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into terrains values(
+  2  t_terrain(1,12000,
+  3  (select ref (C) from cercles3 C where C.rayon = 5) ,
+  4* (select ref (P) from personnes P where P.nom = 'Sow')))
+SQL> /
+
+1 ligne crÚÚe.
+
+SQL> select t.ntf , t.valeur , t.proprietaire.nom , t.position.rayon , t.position.centre.x
+  2  from terrains t;
+select t.ntf , t.valeur , t.proprietaire.nom , t.position.rayon , t.position.centre.x
+                          *
+ERREUR Ó la ligne 1 :
+ORA-00904: "T"."PROPRIETAIRE"."NOM" : identificateur non valide
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  select t.ntf , t.valeur , t.propietaire.nom , t.position.rayon , t.position.centre.x
+  2* from terrains t
+SQL> /
+
+       NTF     VALEUR PROPIETAIRE.NOM      POSITION.RAYON POSITION.CENTRE.X
+---------- ---------- -------------------- -------------- -----------------
+         1      12000 Sow                               5                 0
+
+SQL> create type t_liste_terrain as varray(10) of t_cercles3;
+  2  /
+
+Type crÚÚ.
+
+SQL> create type t_proprio as object (
+  2  Nom varchar(10) , prenom varchar(10) ,
+  3  terrains t_liste_terrain);
+  4  /
+
+Type crÚÚ.
+
+SQL> create table proprios of t_proprio;
+
+Table crÚÚe.
+
+SQL> insert into propios values(
+  2  insert into propios values(;
+insert into propios values(
+*
+ERREUR Ó la ligne 2 :
+ORA-00936: expression absente
+
+
+SQL> insert into proprios values(
+  2  t_proprio('MBACKE','Ahmath', t_liste_terrain(null,t_cercle3(),
+  3  t_cercle3(;
+t_cercle3(
+         *
+ERREUR Ó la ligne 3 :
+ORA-00936: expression absente
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into proprios values(
+  2  t_proprio(
+  3     'MBACKE',
+  4     'Ahmath',
+  5     t_liste_terrain(
+  6             null,
+  7             t_cercle3(),
+  8             t_cercle3( 5,
+  9                       ( select ref (P) from points P where P.X = 0)
+ 10                     )
+ 11             )
+ 12     )
+ 13* )
+SQL> /
+                t_cercle3( 5,
+                *
+ERREUR Ó la ligne 8 :
+ORA-00904: "T_CERCLE3" : identificateur non valide
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into proprios values(
+  2  t_proprio(
+  3     'MBACKE',
+  4     'Ahmath',
+  5     t_liste_terrain(
+  6             null,
+  7             t_cercles3(),
+  8             t_cercles3( 5,
+  9                       ( select ref (P) from points P where P.X = 0)
+ 10                     )
+ 11             )
+ 12     )
+ 13* )
+SQL> /
+                t_cercles3(),
+                *
+ERREUR Ó la ligne 7 :
+ORA-02315: nombre d'arguments non valide pour constructeur par dÚfaut
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into proprios values(
+  2  t_proprio(
+  3     'MBACKE',
+  4     'Ahmath',
+  5     t_liste_terrain(
+  6             null,
+  7             t_cercles3( 5,
+  8                       ( select ref (P) from points P where P.X = 0)
+  9                     )
+ 10             )
+ 11     )
+ 12* )
+SQL> /
+                t_cercles3( 5,
+                            *
+ERREUR Ó la ligne 7 :
+ORA-00932: types de donnÚes incohÚrents ; attendu : REF ; obtenu : NUMBER
+
+
+SQL> ed
+Úcrit file afiedt.buf
+
+  1  insert into proprios values(
+  2  t_proprio(
+  3     'MBACKE',
+  4     'Ahmath',
+  5     t_liste_terrain(
+  6             null,
+  7             t_cercles3(
+  8                       ( select ref (P) from points P where P.X = 0) , 5
+  9                     )
+ 10             )
+ 11     )
+ 12* )
+SQL> /
+
+1 ligne crÚÚe.
+
+SQL> select * from proprios;
+
+NOM        PRENOM
+---------- ----------
+TERRAINS(CENTRE, RAYON)
+--------------------------------------------------------------------------------
+MBACKE     Ahmath
+T_LISTE_TERRAIN(NULL, T_CERCLES3(00002802099149AB4D6A914F3DADDF2EF6AAEFF5089C329
+65628554E58BD555041CEA79AD001C000840000, 5))
+
+
+SQL>

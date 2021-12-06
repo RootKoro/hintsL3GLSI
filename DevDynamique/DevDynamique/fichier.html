@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title> Mon premier Programme</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div id="cadre">
+        <h1 id="titre">Formulaire d'inscription</h1>
+          
+        <form action="">
+        <div>
+            <fieldset>
+               <legend>Identification</legend> 
+                <table>
+                    <tr><td> <label> Nom: </label></td><td><input type="text" name="nom" #REQUIRED></td></tr>
+                    <tr><td><label >Prenom:</label></td><td><input type="text" name="prenom"#REQUIRED></td></tr>
+                    <tr><td><label >Civilite:</label></td><td><select name="civilite" #REQUIRED>
+                                                    <option >M</option>
+                                                    <option >Mme</option>
+                                                    <option >Mlle</option>
+                                                    </select>
+                    </td></tr>
+
+                    <tr><td><label >Date de naissance:</label></td><td><input type="date" name="datenaissance" #REQUIRED></td></tr>
+                    <tr><td><label >Lieu de Naissance:</label></td><td><input type="text" #REQUIRED></td></tr>
+                    <tr><td><label > CNI:</label></td><td><input type="number" name="CNI" #REQUIRED></td></tr>
+                    <tr><td><label > INE:</label></td><td><input type="text" name="INE"></td></tr>
+                    <tr><td><label > Numero carte d'etuiant:</label></td><td><input type="number" name="numerocarteetdiant" #REQUIRED></td></tr>
+                    <tr><td><label > Pays de naissance:</label></td><td><input type="text"></td></tr>
+                    <tr><td><label > Nationalité:</label></td><td><input type="text"></td></tr>
+                     
+            </table>
+            </fieldset>
+        </div>
+    <div>
+        <fieldset>
+            <legend>Adresse Actuelle</legend>
+            <table>
+                <tr><td><label>Adresse principale :</label></td><td><input type="text" name="adresseprincipale" #REQUIRED></td></tr>
+                <tr><td><label>Adresse Secondaire :</label></td><td><input type="text" name="adressesecondaire"></td></tr>
+                <tr><td><label>Email personnel :</label></td><td><input type="email" name="mailP" #REQUIRED></td></tr>
+                <tr><td><label>Email institutionnel :</label></td><td><input type="email" name="mailI" #REQUIRED></td></tr>
+                <tr><td><label>téléphone Portable:</label></td><td><input type="tel" name="telephoneP" #REQUIRED></td></tr>
+                <tr><td><label>téléphone Fixe:</label></td><td><input type="tel" name="telephoneF" #REQUIRED></td></tr>
+                <tr><td><label>Boite postal :</label></td><td><input type="text" name="boitepostal"></td></tr>
+        </table>
+        </fieldset>
+        </div>
+    <div>
+        <fieldset>
+            <legend>Emploi</legend>
+            <table>
+                <tr><td><label>Activité Salarié:</label></td><td><input type="radio" name="Salarie" value="oui">OUI
+                                                                    <input type="radio" name="Salarie" value="non">NON
+                                                                </td></tr>
+                <tr><td><label >Statut etudiant: Regime</label></td><td><select name="statutE" #REQUIRED>
+                                                            <option >Regime Normal</option>
+                                                            <option >Regime Salarié</option>
+                                                            <option >Regime Particulier</option>
+                                                            <option>Mise en position de stage</option>
+                                                                        </select>
+                </td></tr>
+                <tr><td><label>Categorie Socioprfessionelle:</label></td><td><input type="text" name="socioprfessionelle"></td></tr>
+            
+            </table>
+        </fieldset>
+    </div>
+
+    <div>
+            <fieldset>
+            <legend>Situation familiale</legend>
+            <table>
+
+                <tr><td><label>Situation matrimonial</label></td><td><input type="text" name="situationMat" placeholder="Marié,Célibataire,Veuf" #REQUIRED></td></tr>
+                <tr><td><label>nombre d'enfant</label></td><td><input type="number" name="nbenfant" #REQUIRED></td></tr>
+            </table>
+            </fieldset>
+    </div>
+    <div>
+        <fieldset>
+        <legend>Bourse</legend>
+        <table>
+        <tr><td><label>Bourse</label></td><td><input type="radio" name="bourse">Non Boursier
+                                              <input type="radio" name="bourse">Boursier
+                                              <input type="radio" name="bourse">Etranger
+                                              <input type="radio" name="bourse">Exonéré
+                                              <input type="radio" name="bourse">Etranger tarif <br>
+                                              <input type="radio" name="bourse">Normal
+        </td></tr>
+        <tr><td><label>Nature de la bourse</label></td><td><input type="radio" name="natureB">National
+                                                            <input type="radio" name="natureB">Etrangère
+                                                            <input type="radio" name="natureB">De l'etablissement
+        </td></tr>
+        <tr><td><label>Montant de la boure</label></td><td><input type="number"></td></tr>
+    </table>
+    </fieldset>
+</div>
+
+<div>
+    <fieldset>
+        <legend>Contact (Personne à contacter/Responsable)</legend>
+        <table>
+            <tr><td><label>Nom</label></td><td><input type="text" name="nomC"#REQUIRED ></td></tr>
+            <tr><td><label>Prénom</label></td><td><input type="text" name="prenomC" #REQUIRED></td></tr>
+            <tr><td><label>Adresse</label></td><td><input type="text" name="adresseC" ></td></tr>
+            <tr><td><label>Ville</label></td><td><input type="text" name="villeC" ></td></tr>
+            <tr><td><label>Telephone portable</label></td><td><input type="tel" name="telephonePC" #REQUIRED></td></tr>
+            <tr><td><label>Telephone Fixe</label></td><td><input type="tel" name="telephoneFC" #REQUIRED></td></tr>
+            <tr><td><label>Email personnel</label></td><td><input type="text" name="emailPC" #REQUIRED></td></tr>
+            <tr><td><label>Boite postal</label></td><td><input type="text" name="boitepostalC"#REQUIRED ></td></tr>
+            <tr><td><label>Fax</label></td><td><input type="text" name="faxC" ></td></tr>
+            <tr><td><label>responsable etudiant</label></td><td><input type="text" name="respE" #REQUIRED ></td></tr>
+            <tr><td><label>Personne à contacter</label></td><td><input type="text" name="contact" #REQUIRED></td></tr>
+    </table>
+    </fieldset>
+</div>
+<div>
+    <fieldset class="valider"><input type="submit" name="valider" value="valider">
+    <input type="reset" name="reset" value="reinitialiser"></fieldset>
+</div>
+    </form>
+</div>
+</body>
+ 
+</html>

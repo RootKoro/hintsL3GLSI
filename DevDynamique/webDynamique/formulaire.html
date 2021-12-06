@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>LOOOOOOOOOOOOOONE</title>
+</head>
+<body>
+	<h1 id="titre">Formulaire d'inscription</h1>
+
+<form action="traitement.php" method="post">
+<div id="cadre">
+<div>
+<fieldset>
+	<legend>Identification</legend>
+	<table cellspacing="10">
+		<tr>
+			<td><label>Nom:</label> </td>
+			<td><input type="text" name="nom" #required> </td>
+		</tr>
+		<tr>
+			<td><label>Prenom:</label></td>
+			<td><input type="text" name="prenoms"> </td>
+		</tr>
+		<tr>
+			<td><label>Civilité:</label></td>
+			<td><select>
+				<option name="civilite" value="monsieur">M</option>
+				<option name="civilite" value="madame">Mme</option>
+				<option name="civilite" value="madmois">Mlle</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td><label>Date de Naissance:</label></td>
+			<td><input type="date" name="date_naissance"></td>
+		</tr>
+		<tr>
+			<td><label>Lieu de Naissance:</label></td>
+			<td><input type="text" name="lieu_naissance"></td>
+		</tr>
+		<tr>
+			<td>CNI:</td>
+			<td><input type="text" name="cni"></td>
+		</tr>
+		<tr>
+			<td><label>INE:</label></td>
+			<td><input type="text" name="ine"></td>
+		</tr>
+		<tr>
+			<td><label>Numéro carte étudiant:</label></td>
+			<td><input type="text" name="num_carte"></td>
+		</tr>
+		<tr>
+			<td><label>Pays de naissance:</label></td>
+			<td><input type="text" name="pays_naissance"></td>
+		</tr>
+		<tr>
+			<td><label>Nationalité:</label></td>
+			<td><input type="text" name="nationalite"></td>
+		</tr>
+</table>
+</fieldset>
+</div>
+<div>
+	<fieldset>
+		<legend>Adresse Actuelle</legend>
+		<table cellspacing="10">
+			<tr>
+				<td><label>Adresse principale</label></td>
+				<td><input type="" name="adresse_principale"></td>
+			</tr>
+			<tr>
+				<td><label>Adresse secondaire</label></td>
+				<td><input type="text" name="adresse_secondaire"></td>
+			</tr>
+			<tr>
+				<td><label>Email</label></td>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td><label>Téléphone portable</label></td>
+				<td><input type="text" name="tel_portable"></td>
+			</tr>
+			<tr>
+				<td><label>téléphone fixe</label></td>
+				<td><input type="text" name="tel_fixe"></td>
+			</tr>
+			<tr>
+				<td><label>Email personnel</label></td>
+				<td><input type="text" name="email_personnel"></td>
+			</tr>
+			<tr>
+				<td><label>Email institutionnel</label></td>
+				<td><input type="text" name="email_institutionnel"></td>
+			</tr>
+			<tr>
+				<td><label>Boite postale</label></td>
+				<td><input type="text" name="boite_postale"></td>
+			</tr>
+	</table>
+	</fieldset>
+</div>
+<div>
+	<fieldset>
+		<legend>Emploi</legend>
+		<table>
+			<tr>
+				<td><label>Activité salariale</label></td>
+				<td><input type="" name="activite_salarie"></td>
+			</tr>
+			<tr>
+				<td><label>Statut étudiant</label></td>
+				<td><select>
+					<option name="statut_etudiant" value="rgmn">Regime normal</option>
+					<option name="statut_etudiant" value="rgms">Régime salarié</option>
+					<option name="statut_etudiant" value="rgmp">Régime particulier</option>
+					<option name="statut_etudiant" value="misep">Mise en position de stage</option></select></td>
+			</tr>
+			<tr>
+				<td><label>Catégorie socioprofessionnelle</label></td>
+				<td><input type="text" name="categorie_socio"></td>
+			</tr>
+	</table>
+	</fieldset>
+</div>
+<div>
+	<fieldset>
+		<legend>Situation familiale</legend>
+		<table>
+			<tr>
+				<td><label>Situation matrimoniale</label></td>
+				<td><input type="text" name="situation_matrimoniale"></td>
+			</tr>
+			<tr>
+				<td><label>Nombre d'enfants:</label></td>
+				<td><input type="text" name="nb_enfants"></td>
+			</tr>
+	</table>
+	</fieldset>
+</div>
+<div>
+	<fieldset>
+		<legend>Bourses</legend>
+		<table>
+			<tr>
+				<td><label>Bourse</label></td>
+				<td><input type="radio" name="bourse" value="nb">Non boursier</td>
+				<td><input type="radio" name="bourse" value="b">Boursier</td>
+				<td><input type="radio" name="bourse" value="e">Etranger</td>
+				<td><input type="radio" name="bourse" value="ex">Etranger exonéré</td>
+				<td><input type="radio" name="bourse" value="etn">Etranger tarif normal</td>
+			</tr>
+			<tr>
+				<td><label>Nature bourse:</label></td>
+				<td><input type="text" name="nature_bourse"></td>
+			</tr>
+			<tr>
+				<td><label>Montant bourse:</label></td>
+				<td><input type="text" name="montant_bourse"></td>
+			</tr>
+	</table>
+	</fieldset>
+</div>
+<div>
+	<fieldset>
+		<legend>Conatct(Personne à contacter/Responsable)</legend>
+		<table>
+			<tr>
+			<td><label>Nom:</label> </td>
+			<td><input type="text" name="nom" #required> </td>
+		</tr>
+		<tr>
+			<td><label>Prenom:</label></td>
+			<td><input type="text" name="prenom"> </td>
+		</tr>
+		<tr>
+				<td><label>Adresse </label></td>
+				<td><input type="" name="adresse"></td>
+			</tr>
+			<tr>
+				<td><label>Ville</label></td>
+				<td><input type="" name="ville"></td>
+			</tr>
+			<tr>
+				<td><label>Téléphone portable</label></td>
+				<td><input type="text" name="tel_portable"></td>
+			</tr>
+			<tr>
+				<td><label>téléphone fixe</label></td>
+				<td><input type="text" name="tel_fixe"></td>
+			</tr>
+			<tr>
+				<td><label>Email personnel</label></td>
+				<td><input type="text" name="email_personnel"></td>
+			</tr>
+			<tr>
+				<td><label>Boite postale</label></td>
+				<td><input type="text" name="boite_postale"></td>
+			</tr>
+			<tr>
+				<td><label>Fax</label></td>
+				<td><input type="text" name="fax"></td>
+			</tr>
+			<tr>
+				<td><label>Responsable étudiant</label></td>
+				<td><input type="text" name="responsable_etudiant"></td>
+			</tr>
+	</table>
+	</fieldset>
+</div>
+<div>
+	Valider<input type="submit" name="submit">
+</div>
+</div>
+</form>
+</body>
+</html>

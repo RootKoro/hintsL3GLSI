@@ -1,0 +1,8 @@
+step 1: lancer la commande ionic g page about
+step 2: modifier les tabs dans le fichier src/app/tabs/tabs.page.html
+step 3: modifier le path dans le fichier src/app/tabs/tabs-routing.module.ts
+step 4: modifier les fichiers du folder src/app/about
+step 5: modifier les tabs dans src/app
+
+
+Patron : pattern momento.

@@ -1,0 +1,24 @@
+Types
+    liste, place
+Utilise
+    élément
+Opérations
+    listevide : → liste
+    cons : liste × élément → liste
+    fin : liste → liste
+    tête : liste → place
+    contenu : place → élément
+    premier : liste → élément
+    succ : place → place
+Préconditions
+    fin(l) est-défini-ssi l 6= listevide
+    tête(l) est-défini-ssi l 6= listevide
+    premier(l) est-défini-ssi l 6= listevide
+Axiomes
+    premier(l) = contenu(tête(l))
+    fin(cons(e,l)) = l
+    premier(cons(e,l)) = e
+    succ(tête(l)) = tête(fin(l))
+Avec
+    liste l
+    élément e

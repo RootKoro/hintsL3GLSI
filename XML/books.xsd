@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema  
+                     xmlns:xs="http://www.w3.org/2001/XMLSchema">
+                
+  <xs:element name="voiture" type="marque"/>  
+
+  
+  <xs:simpleType name="marque">
+      <xs:restriction base="xs:token">
+          <xs:enumeration value="BMW"/>
+          <xs:enumeration value="GOLF"/>
+      </xs:restriction>  
+    </xs:simpleType>
+                 
+
+    
+    
+</xs:schema>

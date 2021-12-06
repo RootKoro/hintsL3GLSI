@@ -1,0 +1,180 @@
+/*EXO 1
+
+for([initialisation] ; [condition] ; [changement])
+     optionnel     obli optionnel obli  optionnel
+
+l'utilisateur devra entrer des entiers dans un ordre -----------> plus d'une variable entiere
+                                                                  essaie avec deux variables
+==>
+    scanf(nombre1)
+    scanf(nombre2)
+
+    SI (nombre1 > nombre2) ALORS ordre décroissant
+    SINON ordre croissant
+
+
+    ordre décroissant : 
+
+    TANT QUE nombre1 > nombre2 FAIRE ======> on compare nombre1 et nombre2 à chaque fois qu'ils changent de valeur
+        nombre1 = nombre2 =================> on donne à nombre1 la valeur de nombre2 avant de la changer
+        scanf(nombre2)    =================> la valeur de nombre2 change et la bouble reprend la vérification
+    FIN TANT QUE
+
+    ordre croissant : 
+
+    TANT QUE nombre1 < nombre2 FAIRE
+        nombre1 = nombre2
+        scanf(nombre2)
+    FIN TANT QUE
+
+
+#include<stdio.h>
+
+int main(int argc, char const *argv[])
+{
+    int nombrePrecedent , nombreSuivant;
+    scanf("%d %d" , &nombrePrecedent , &nombreSuivant);
+    
+    if(nombrePrecedent > nombreSuivant){
+        do{
+            nombrePrecedent = nombreSuivant;
+            scanf("%d" , &nombreSuivant);
+        }while(nombrePrecedent > nombreSuivant);
+    }else if(nombrePrecedent < nombreSuivant){
+        do
+        {
+            nombrePrecedent = nombreSuivant;
+            scanf("%d" , &nombreSuivant);
+        } while (nombrePrecedent < nombreSuivant);
+        
+    }
+    return 0;
+}*/
+
+
+
+/*EXO 2
+
+utilisateur donne un intervalle de recherche et un nombre total d'essais ===> bornInf , bornSup , nombreEssai
+le programme génére un nombre aléatoire entre bornInf et bornSup ==>
+
+srand(time(NULL))
+int surprise = rand() % (bornSup - bornInf + 1) + bornInf
+
+utilisateur cherche le nombre surprise compris entre bornInf et bornSup tant que son nombre d'essaie n'est pas terminé et tant qu'il n'a pas trouvé le nombre
+le programme lui dis si c'est plus ou c'est moins ==========>
+
+POUR i DE 0 JUSQUA nombreEssai - 1
+    scanf(devine)
+    SI (devine == surprise) ALORS printf "nice tu as trouvé"; break;
+    SINON SI (devine > surprise) ALORS printf "non, c'est moins"
+    SINON SI (devine < surprise) Alors printf "non, c'est plus"
+*/
+
+#include<stdio.h>
+
+int main(int argc, char const *argv[])
+{
+    int bornInf , bornSup , nombreEssai;
+    printf("Donner les bornes : ");
+    scanf("%d %d", &bornInf , &bornSup);
+    printf("Donner le nombre d'essais : ");
+    scanf("%d" , &nombreEssai);
+
+    srand(time(NULL));
+    int surprise = rand() % (bornSup - bornInf + 1) + bornInf;
+
+    int devine, trouvei = 0;
+
+    for(int i = 0 ; i < nombreEssai; i++){
+        scanf("%d", &devine);
+        int essaiesRestant = nombreEssai - i - 1;
+        if(devine == surprise){
+            printf("WOAAAAW, tu as trouvei en %d essaies !", i + 1);
+            trouvei = 1;
+            break;
+        }else if(devine < surprise){
+            printf("non, c\'est plus; il vous reste %d essaies", essaiesRestant);
+        }else
+        printf("non c\'est moins; il vous reste %d essaies", essaiesRestant);
+    }
+
+    if(trouvei == 0)
+        printf("Dommage il ne vous reste plus d'essaies !");
+    return 0;
+}
+
+
+/*EXO 5
+
+    *
+   ***
+  *****
+ *******
+*********
+ *******
+  *****
+   ***
+    *
+
+
+for(int i = 0; i < 9; i++){
+    int starPrinter;
+    if(i < 5){
+        starPrinter = 5 - i - 1;
+        for(int j = 0; j < 9; j++){
+        if(j < starPrinter)
+            printf(" ");
+        else if(j <= starPrinter + 2*i && j >= starPrinter)
+            printf("*");
+        }
+    }
+    else{
+        starPrinter = i - 5 + 1;
+        for(int j = 0; j < 9; j++){
+            if(j < starPrinter)
+                printf(" ");
+            else if(j <= 9 - starPrinter - 1 && j >= starPrinter)
+                printf("*");
+        }
+    }
+    printf("\n");
+}
+
+
+
+
+    *
+   ***
+  *****
+ *******
+*********
+*********
+ *******
+  *****
+   ***
+    *
+
+
+for(int i = 0; i < 10; i++){
+    int starPrinter;
+    if(i <= 5){
+        starPrinter = 5 - i - 1;
+        for(int j = 0; j < 9; j++){
+        if(j < starPrinter)
+            printf(" ");
+        else if(j <= starPrinter + 2*i && j >= starPrinter)
+            printf("*");
+        }
+    }
+    else{
+        starPrinter = i - 5;
+        for(int j = 0; j < 9; j++){
+            if(j < starPrinter)
+                printf(" ");
+            else if(j <= 9 - starPrinter - 1 && j >= starPrinter)
+                printf("*");
+        }
+    }
+    printf("\n");
+}*/

@@ -1,0 +1,6 @@
+<!ELEMENT magasin (facture+)>
+<!ELEMENT facture (personne , montant , raison)>
+<!ATTLIST facture num CDATA #REQUIRED>
+<!ELEMENT personne (#PCDATA)>
+<!ELEMENT montant (#PCDATA)>
+<!ELEMENT raison (#PCDATA)>

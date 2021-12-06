@@ -1,0 +1,37 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1187\cocoasubrtf370
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid101\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww21260\viewh15040\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs48 \cf0 Soit un syst\'e8me de gestion de caisses dans une entreprise. \
+Elle est stock\'e9e dans une base oracle ayant la structure suivante : \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}Produits (\ul idProd\ulnone , Libelleprod, QteStock, PrixAchat, PRixVente,idCategorie)\
+{\listtext	\uc0\u8259 	}CategoriesPRoduits (\ul idCateg\ulnone , LibelleCateg, TVA )\
+{\listtext	\uc0\u8259 	}Ventes (\ul idVente\ulnone , DateVente, PourcentageReduction, MontantVente )\
+{\listtext	\uc0\u8259 	}DetailVente (idVente, idProd, Qte)\
+{\listtext	\uc0\u8259 	}BeneficeVente (idVente, MontantBenefice)\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+Pour sa gestion l'entreprise utilise 4 caissiers, 1 responsable de caisse , 2 gestionnaires de stock et 1 comptable.\
+Les acteurs ont les responsabilit\'e9s suivantes :\
+\pard\tx220\tx720\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\li720\fi-720\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	\uc0\u8259 	}Caissiers : saisie des ventes et de leur d\'e9tail, Mise \'e0 jour du stock\
+{\listtext	\uc0\u8259 	}Responsable de caisse: Modification/suppression des d\'e9tails de vente, et octroi de privil\'e8ges aux caissiers\
+{\listtext	\uc0\u8259 	}Gestionnaire de stock : Contr\'f4le totale sur la gestion du stock  de produit et de leur cat\'e9gories\
+{\listtext	\uc0\u8259 	}Comptable : Consultation sur les ventes/Produits/cat\'e9gories de produits et \'e9valuation des montant de B\'e9n\'e9fice obtenus .\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+Cr\'e9er les r\'f4les identifi\'e9s ; \
+Identifier les privil\'e8ges de chaque r\'f4le\
+Associer les privil\'e8ges aux diff\'e9rents r\'f4les\
+Cr\'e9er les utilisateurs :\
+GEstCaisse et Compta1 en leur donnant les r\'f4les et privil\'e8ges dont ils ont besoin \
+\
+}

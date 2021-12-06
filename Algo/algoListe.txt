@@ -1,0 +1,34 @@
+Algorithme listeStatique
+	Constante
+		Taille = 20
+	Type
+		Etudiant
+			chaine nom, prenom
+			entier age
+		FinTypeEtudiant
+		
+		listeStatique
+			Etudiant[Taille] listeEt
+			entier longueur
+		FinTypelisteStatique
+		
+	//Implementation recursivement
+	fonction listeVide(): listeStatique
+	Variable 
+		listeStatique list
+	Debut
+		list.longueur=0
+		retourner list
+	FinFonction
+	
+	fonction cons(listeStatique l, Etudiant et):listeStatique
+	Debut
+		l.longueur <-- l.longueur+1
+		l.listeEt[l.longueur]<--et
+		retourner l
+	FinFonction
+		
+
+
+
+	

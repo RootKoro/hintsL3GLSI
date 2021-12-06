@@ -1,0 +1,151 @@
+
+	'<form>'+
+		'<fieldset>'+
+		    '9. Dans l'ensemble, quel est votre degré de satisfaction concernant le cours ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q9" value="es">Extrêmement satisfait(e)<br>'+
+				'<input type="radio" name = "Q9" value="ts">Très satisfait(e)<br>'+
+		    '</div>'+
+            '<div class="mid">'+
+				'<input type="radio" name = "Q9" value="as">Assez satisfait(e)<br>'+
+				'<input type="radio" name = "Q9" value="nsi2">Ni satisfait(e) ni insatisfait(e)<br>'+
+				'<input type="radio" name = "Q9" value="">Assez insatisfait(e)<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q9" value="ti">Très insatisfait(e)<br>'+
+				'<input type="radio" name = "Q9" value="ei">Extrêmement insatisfait(e)<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '10. Quel était le niveau de qualité global de l’instructeur pour ce cours ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q10" value="ex">Excellent<br>'+
+				'<input type="radio" name = "Q10" value="tb">Très bon<br>'+
+		    '</div>'+
+            '<div class="mid">'+
+				'<input type="radio" name = "Q10" value="bn">Bon<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q10" value="ab">Assez bon<br>'+
+				'<input type="radio" name = "Q10" value="fb">Faible<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '11. Le cours était-il bien organisé ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q11" value="ebo">Extrêmement bien organisé<br>'+
+				'<input type="radio" name = "Q11" value="tbo">Très bien organisé<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q11" value="abo">Assez bien organisé<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q11" value="ptbo">Pas très bien organisé<br>'+
+				'<input type="radio" name = "Q11" value="pdto">Pas du tout organisé<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '12. Quel était le niveau de connaissances du sujet de cours de l’instructeur ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q12" value="endc">Excellent niveau de connaissance<br>'+
+				'<input type="radio" name = "Q12" value="tbndc">Très bon niveau de connaissance<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q12" value="abndc">Assez bon niveau de connaissance<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q12" value="ndcm">Niveau de connaissance médiocre<br>'+
+				'<input type="radio" name = "Q12" value="ac">Aucune connaissance<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+	'</form>'
+
+	'<form>'+
+		'<fieldset>'+
+		    '13. Les explications de l’instructeur étaient-elles claires ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q13" value="ec">Extrêmement claires<br>'+
+				'<input type="radio" name = "Q13" value="tc">Très claires<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q13" value="ac">Assez claires<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q13" value="pc">Peu claires<br>'+
+				'<input type="radio" name = "Q13" value="pcdt">Pas claires du tout<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '14. De quelle manière l’instructeur était-il concerné par l’apprentissage des élèves dans ce cours ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q14" value="ec">Extrêmement concerné<br>'+
+				'<input type="radio" name = "Q14" value="tc">Très concerné<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q14" value="ac">Assez concerné<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q14" value="pc">Peu concerné<br>'+
+				'<input type="radio" name = "Q14" value="pdtc">Pas du tout concerné<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '15. L’instructeur avait-il une attitude encourageante envers les élèves ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q15" value="ee">Extrêmement encourageante<br>'+
+				'<input type="radio" name = "Q15" value="te">Très encourageante<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q15" value="ae">Assez encourageante<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q15" value="pe">Peu encourageante<br>'+
+				'<input type="radio" name = "Q15" value="pdte">Pas du tout encourageante<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '16. L’instructeur était-il disponible en dehors du cours ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q16" value="">Extrêmement disponible<br>'+
+				'<input type="radio" name = "Q16" value="">Très disponible<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q16" value="">Assez disponible<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q16" value="">Pas très disponible<br>'+
+				'<input type="radio" name = "Q16" value="">Pas du tout disponible<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+	'</form>'
+
+	'<form>'+
+		'<fieldset>'+
+		    '17. Dans quelle mesure les critères d’évaluation du cours étaient-ils clairs ?<br><br>'+
+		    '<div class="left">'+
+				'<input type="radio" name = "Q17" value="">Extrêmement clairs<br>'+
+				'<input type="radio" name = "Q17" value="">Très clairs<br>'+
+		    '</div>'+
+			'<div class="mid">'+
+				'<input type="radio" name = "Q17" value="">Assez clairs<br>'+
+			'</div>'+
+			'<div class="right">'+
+				'<input type="radio" name = "Q17" value="">Peu clairs<br>'+
+				'<input type="radio" name = "Q17" value="">Pas clairs du tout<br>'+
+			'</div>'+
+		'</fieldset>'+
+		'<br>'+
+		'<fieldset>'+
+		    '18. Si vous avez d'autres suggestions ou commentaires concernant le cours, merci de nous en faire part.'+
+		    '<input type="textarea" name = "Q18">'+
+		'</fieldset>'+
+		'<br>'+
+	'</form>'

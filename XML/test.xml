@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<bibliotheque>
+  <livre id="3306">
+    <nom>tiopette</nom>
+    <auteur>Golo</auteur>
+  </livre>
+  <livre id="3307">
+    <nom>gololock</nom>
+    <auteur>Ndiaye Tiopette</auteur>
+  </livre>
+</bibliotheque>

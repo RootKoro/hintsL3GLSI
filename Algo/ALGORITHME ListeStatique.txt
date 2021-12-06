@@ -1,0 +1,60 @@
+ALGORITHME ListeStatique
+
+    CONSTANTE
+        Tail=20
+
+    TYPEEtudiant
+        chaine nom, prenom 
+        entier age 
+    FIN TYPEEtudiant
+
+    TYPEListeStatique
+        Etudiant[Tail] Etu
+        entier longueur
+    FIN TYPEListeStatique
+
+    //Implémentation Itérative
+
+    fonction listevide() : ListeStatique
+    Variable
+        ListeStatique list
+    Debut
+        list.longueur <-- 0
+        retourner list
+    Fin fonction
+
+    fonction ieme (ListeStatique l, entier i) : Etudiant
+
+    Debut
+        retourner l.Etu[i]
+    Fin fonction
+
+    fonction longueur(ListeStatique l) : entier
+
+    Debut
+        retourner l.longueur
+    Fin fonction
+
+    fonction inserer(ListeStatique l, entier pos, Etudiant e) : ListeStatique
+    Variable
+        entier k
+    Debut
+        Pour k de l.longueur jusqu'à pos par pas de -1 faire
+        l.Etu[k+1] <-- l.Etu[k];
+        FINPour
+
+        l.Etu[pos] <-- e
+        l.longueur <-- l.longueur + 1
+        retourner l
+    fin fonction
+
+    fonction supprimer (ListeStatique l, entier pos) : ListeStatique
+    Variable
+        entier k
+    Debut
+        Pour k de pos jusqu'à l.longueur-1 faire
+            l.Etu[k] <-- l.Etu[k+1]
+        FINPour
+        l.longueur <-- l.longueur - 1
+        retourner l
+    fin fonction

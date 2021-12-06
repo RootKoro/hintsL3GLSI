@@ -1,0 +1,46 @@
+
+vect(1 , 7)
+
+borneinf(v) < i < bornesup(v) =⇒ ième(modifième(v,i,e),i)=e
+
+borneinf(v) < i < bornesup(v) ET borneinf(v) < j < bornesup(v)
+ET i <> j =⇒ ième(modifième(v,i,e),j)=ième(v,j)
+
+
+supposons v est un vecteur de taille 7 =⇒ 1 <= i <= 7 && 1 <= j <= 7
+
+avec i != j
+
+1 <= i <= 7  =⇒  ième(modifième(v,i,e),i)=e
+
+modifième(v,i,e) =⇒ modifie l'elmt se trouvant a la place i par e et 
+                        retourne le nouveau vecteur
+
+v{23 , 24 , 35 , 56 , 34 , 66 , 77}
+
+ième (v , 5) == 34
+
+v = modifie (v , 5 , 3) // v{23 , 24 , 35 , 56 , 3 , 66 , 77}
+
+ième(v , i)    =⇒    retourne l'elmt a la place i du vecteur v
+
+ième(v , 5)  == 3
+
+ième(modifième(v,i,e) , i) =⇒ retourne l'elmt a la place i du vecteur
+                                 retourné par l'operation modifième : e
+
+
+ième(modifième(v , 5 , 3) , 5)  ==  3
+
+ième(v , j)    =⇒    retourne l'elmt a la place j du vecteur v
+
+ième(modifième(v,i,e) , j) =⇒ ième(v , j)
+
+estinitialisé(vect(15,56),56) = FAUX
+
+estinitialisé(vect(15,56),64) = ERREUR
+
+i <= k <= j; estinitialisé (vect(i,j) k) = FAUX
+
+
+taille du vecteur = bornesup - borneinf + 1

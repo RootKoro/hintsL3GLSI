@@ -1,0 +1,1780 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"><title>Oracle</title></head>
+
+<body><h3>Solutions</h3>
+
+<b>sol02_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+STARTUP
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol02_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+COL owner           FORMAT a5;
+COL table_name      FORMAT a20;
+COL tablespace_name FORMAT a15;
+
+SELECT owner,table_name,tablespace_name
+FROM   dba_tables
+WHERE  rownum &lt; 10;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol02_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>host del %ORACLE_HOME%\database\pwddba.ora
+host orapwd file=%ORACLE_HOME%\database\pwddba.ora password=oracle entries=5
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SHUTDOWN IMMEDIATE
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect / as sysdba
+create spfile='spfiledba.ora'
+from pfile='initdba.ora';
+
+
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+STARTUP
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SHUTDOWN IMMEDIATE
+
+STARTUP MOUNT
+
+ALTER DATABASE OPEN READ ONLY;
+
+CONNECT hr/hr
+
+INSERT INTO regions VALUES ( 5, 'Mars');
+
+CONNECT / AS SYSDBA
+
+SHUTDOWN IMMEDIATE
+
+STARTUP
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_06a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT hr/hr
+
+INSERT INTO regions VALUES (5, 'Mars');
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_06b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SHUTDOWN TRANSACTIONAL
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_06c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ROLLBACK;
+
+EXIT;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_07a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+STARTUP
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_07b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT hr/hr
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_07c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER SYSTEM ENABLE RESTRICTED SESSION;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_07d.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT *
+FROM   regions;
+
+CONNECT hr/hr
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol03_07e.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER SYSTEM DISABLE RESTRICTED SESSION;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol05_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SELECT table_name
+FROM   dictionary;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol05_08.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT name 
+FROM   v$database;
+
+SELECT instance 
+FROM   v$thread;
+
+SELECT value 
+FROM   v$parameter
+WHERE  name ='db_block_size';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol05_09.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT name 
+FROM   v$datafile;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol05_10.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT file_name
+FROM   dba_data_files
+WHERE  tablespace_name = 'SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol05_11.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT sum(bytes)/1024 "free space in KB"
+FROM   dba_free_space;
+
+SELECT sum(bytes)/1024 "used space in KB"
+FROM   dba_segments;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol05_12.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT username, created 
+FROM   dba_users;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol06_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>COL name FORMAT a50
+
+SELECT * 
+FROM   v$controlfile;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol06_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SHUTDOWN IMMEDIATE
+
+host copy %CLASS_HOME%\ORADATA\U01\CTRL01.CTL %CLASS_HOME%\ORADATA\U01\CTRL01.BAK
+
+HOST del %CLASS_HOME%\ORADATA\U01\CTRL01.CTL
+
+STARTUP
+
+host copy %CLASS_HOME%\ORADATA\U01\CTRL01.BAK %CLASS_HOME%\ORADATA\U01\CTRL01.CTL
+
+SHUTDOWN
+
+CONNECT / AS SYSDBA
+
+STARTUP
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol06_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+ALTER SYSTEM SET control_files = 'C:\ORACLASS\ORADATA\U01\CTRL01.CTL','C:\ORACLASS\ORADATA\U02\CTRL02.CTL' SCOPE=SPFILE;
+
+SHUTDOWN IMMEDIATE;
+
+host copy %CLASS_HOME%\ORADATA\U01\CTRL01.CTL %CLASS_HOME%\ORADATA\U02\CTRL02.CTL
+
+CONNECT / AS SYSDBA
+
+STARTUP
+
+SELECT name
+FROM   v$controlfile;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol06_03x.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SHUTDOWN IMMEDIATE
+
+HOST del %ORACLE_HOME%\database\spfiledba.ora
+
+CREATE SPFILE='spfiledba.ora'
+FROM    PFILE='initDBA.ora';
+
+STARTUP
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol06_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT records_total
+FROM   v$controlfile_record_section
+WHERE  type = 'DATAFILE';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT member 
+FROM   v$logfile;
+
+SELECT group#, members
+FROM   v$log;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT log_mode 
+FROM   v$database;
+
+SELECT archiver 
+FROM   v$instance;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER DATABASE ADD LOGFILE MEMBER
+'c:\oraclass\oradata\u04\log01b.rdo' to Group 1,
+'c:\oraclass\oradata\u04\log02b.rdo' to Group 2;
+
+COLUMN GROUP# FORMAT 99
+COLUMN MEMBER FORMAT a40
+
+SELECT * 
+FROM   v$logfile;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER DATABASE ADD 
+   LOGFILE GROUP 3(
+                    'c:\oraclass\oradata\u03\log03a.rdo',
+                    'c:\oraclass\oradata\u04\log03b.rdo'
+                  ) SIZE 1024K;
+
+COLUMN GROUP# FORMAT 99
+COLUMN MEMBER FORMAT a40
+
+SELECT * 
+FROM   v$logfile;
+
+SELECT group#, members 
+FROM   v$log;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER SYSTEM SWITCH LOGFILE;
+
+ALTER DATABASE DROP LOGFILE GROUP 3;
+
+SELECT group#, members 
+FROM   v$log;
+
+SHUTDOWN IMMEDIATE
+
+CONNECT / AS SYSDBA
+
+host del %CLASS_HOME%\oradata\u03\log03a.rdo
+host del %CLASS_HOME%\oradata\u04\log03b.rdo
+
+STARTUP
+
+
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_05x.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SHUTDOWN
+
+STARTUP MOUNT
+
+RECOVER DATABASE UNTIL CANCEL;
+
+ALTER DATABASE OPEN RESETLOGS;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol07_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER DATABASE ADD LOGFILE
+   GROUP 3( 'c:\oraclass\oradata\u03\log03a.rdo',
+            'c:\oraclass\oradata\u04\log03b.rdo'
+          ) SIZE 1024K,
+   GROUP 4( 'c:\oraclass\oradata\u03\log04a.rdo',
+            'c:\oraclass\oradata\u04\log04b.rdo'
+          ) SIZE 1024K
+;
+
+SELECT group#, status 
+FROM   v$log;
+
+ALTER SYSTEM SWITCH LOGFILE;
+
+ALTER SYSTEM SWITCH LOGFILE;
+
+ALTER DATABASE DROP LOGFILE GROUP 1, GROUP 2;
+
+SELECT group#, bytes 
+FROM   v$log;
+
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol08_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CREATE TABLESPACE data01
+DATAFILE 'c:\oraclass\oradata\u04\data01.dbf' SIZE 2M
+EXTENT MANAGEMENT DICTIONARY; 
+
+CREATE TABLESPACE data02
+DATAFILE 'c:\oraclass\oradata\u03\data02.dbf' SIZE 1M
+EXTENT MANAGEMENT LOCAL UNIFORM SIZE 100K; 
+
+CREATE TABLESPACE indx01
+DATAFILE 'c:\oraclass\oradata\u02\indx01.dbf' SIZE 1M
+AUTOEXTEND ON NEXT 500K MAXSIZE 2M
+EXTENT MANAGEMENT LOCAL UNIFORM SIZE 4K;
+
+CREATE TABLESPACE ronly
+DATAFILE 'c:\oraclass\oradata\u01\ronly01.dbf' SIZE 1M;
+
+COLUMN name FORMAT a50
+SET LINESIZE 80
+SET PAGESIZE 999
+
+SELECT name, bytes, create_bytes
+FROM   v$datafile;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol08_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER DATABASE
+DATAFILE 'c:\oraclass\oradata\u03\data02.dbf' RESIZE 1500K;
+
+COLUMN name FORMAT a40
+
+SELECT name, bytes, create_bytes
+FROM   v$datafile
+WHERE  name LIKE '%DATA02%';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol08_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER TABLESPACE indx01 OFFLINE;
+
+SELECT name, status
+FROM   v$datafile;
+
+host copy %CLASS_HOME%\oradata\u02\indx01.dbf %CLASS_HOME%\oradata\u06\indx01.dbf
+
+
+ALTER TABLESPACE indx01
+   RENAME DATAFILE
+   'c:\oraclass\oradata\u02\indx01.dbf' TO
+   'c:\oraclass\oradata\u06\indx01.dbf';
+
+ALTER TABLESPACE indx01 ONLINE;
+
+COLUMN name FORMAT a45
+
+SELECT name, status
+FROM   v$datafile;
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol08_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CREATE TABLE table1 ( x CHAR(1))
+TABLESPACE ronly;
+
+ALTER TABLESPACE ronly READ ONLY;
+
+SELECT name, enabled, status
+FROM   v$datafile;
+
+CREATE TABLE table2 ( y CHAR(1))
+TABLESPACE ronly;
+
+DROP TABLE table1;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol08_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>DROP TABLESPACE ronly INCLUDING CONTENTS AND DATAFILES;
+
+SELECT *
+FROM   v$tablespace;
+
+HOST DIR %CLASS_HOME%\oradata\u01\*
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol08_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER SYSTEM SET DB_CREATE_FILE_DEST='c:\oraclass\oradata\u05' SCOPE=MEMORY;
+
+CREATE TABLESPACE data03
+DATAFILE SIZE 5M;
+
+SELECT *                   
+FROM   v$tablespace;
+
+HOST DIR %CLASS_HOME%\oradata\u05
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol09_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+SELECT DISTINCT segment_type
+FROM   dba_segments;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol09_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager 
+
+COLUMN segment_name FORMAT a20
+COLUMN segment_type FORMAT a15
+
+SELECT segment_name,segment_type,
+       max_extents, extents
+FROM   dba_segments
+WHERE  extents+5 &gt; max_extents
+AND    segment_type&lt;&gt;'CACHE';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol09_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+SELECT DISTINCT f.file_name
+FROM   dba_extents e,dba_data_files f
+WHERE  e.segment_name='EMP'
+AND    e.file_id=f.file_id;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol09_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA;
+
+SELECT   tablespace_name,COUNT(*) AS fragments,
+         SUM(bytes) AS total,
+         MAX(bytes) AS largest
+FROM     dba_free_space
+GROUP BY tablespace_name;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol09_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect sys/oracle as sysdba;
+SELECT s.segment_name,s.segment_type,s.tablespace_name,s.next_extent
+FROM dba_segments s
+WHERE NOT EXISTS (SELECT 1 
+                        FROM dba_free_space f
+                        WHERE s.tablespace_name=f.tablespace_name
+                        HAVING max(f.bytes) &gt; s.next_extent)
+/
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SELECT segment_name
+FROM   dba_rollback_segs
+WHERE  tablespace_name = 'UNDOTBS';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CREATE UNDO TABLESPACE undo2
+DATAFILE 'c:\oraclass\oradata\u03\undo2.dbf' size 15M;
+
+SELECT segment_name
+FROM   dba_rollback_segs
+WHERE  tablespace_name = 'UNDO2';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER SYSTEM SET undo_tablespace='UNDO2' SCOPE=BOTH;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>DROP TABLESPACE undotbs INCLUDING CONTENTS AND DATAFILES;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT segment_name
+FROM   dba_rollback_segs
+WHERE  tablespace_name = 'UNDOTBS';
+ 
+SELECT a.usn,a.name,b.status
+FROM v$rollname a, v$rollstat b
+WHERE a.name IN ( SELECT segment_name
+                  FROM   dba_segments
+                  WHERE  tablespace_name = 'UNDOTBS'
+                ) 
+AND a.usn = b.usn;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ROLLBACK;
+
+EXIT;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_08.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>DROP TABLESPACE undotbs;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol10_09.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER SYSTEM SET undo_retention=0 SCOPE=MEMORY;
+
+DROP TABLESPACE undotbs INCLUDING CONTENTS AND DATAFILES;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE TABLE customers ( cust_code VARCHAR2(3),
+                         name      VARCHAR2(50),
+                         region    VARCHAR2(5)   )
+TABLESPACE users;
+
+CREATE TABLE orders ( ord_id       NUMBER(3),
+                      ord_date     DATE,
+                      cust_code    VARCHAR2(3),
+                      date_of_dely DATE         )
+TABLESPACE users;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+SELECT file_id, block_id, blocks
+FROM   dba_extents
+WHERE  owner = 'SYSTEM'
+AND    segment_name = 'ORDERS'
+AND    segment_type = 'TABLE';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT count(*)
+FROM   dba_extents
+WHERE  segment_name='ORDERS'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+ALTER TABLE orders ALLOCATE EXTENT;
+
+SELECT count(*)
+FROM   dba_extents
+WHERE  segment_name='ORDERS'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE TABLE orders2
+   TABLESPACE users
+   STORAGE(MINEXTENTS 10)
+   AS
+   SELECT * FROM orders;
+
+SELECT count(*)
+FROM   dba_extents
+WHERE  segment_name='ORDERS2'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+TRUNCATE TABLE orders REUSE STORAGE;
+
+SELECT count(*)
+FROM   dba_extents
+WHERE  segment_name='ORDERS'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_08.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+TRUNCATE TABLE orders2;
+
+SELECT count(*)
+FROM   dba_extents
+WHERE  segment_name='ORDERS2'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_10.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+DESCRIBE orders2;
+
+ALTER TABLE orders2
+   SET UNUSED COLUMN date_of_dely
+   CASCADE CONSTRAINTS;
+
+DESCRIBE orders2;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_11.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+ALTER TABLE orders2
+DROP UNUSED COLUMNS CHECKPOINT 1000;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol11_12.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+DROP TABLE orders2;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE INDEX cust_name_idx
+   ON customers(name)
+  TABLESPACE indx01;
+
+CREATE BITMAP INDEX cust_region_idx
+  ON system.customers(region)
+  TABLESPACE indx01;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+ALTER INDEX cust_region_idx REBUILD
+  TABLESPACE indx;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT file_id, block_id, blocks
+FROM   dba_extents
+WHERE  segment_name='CUST_REGION_IDX'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+ALTER INDEX cust_region_idx REBUILD;
+
+SELECT file_id, block_id, blocks
+FROM   dba_extents
+WHERE  segment_name='CUST_REGION_IDX'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_05b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+SELECT count(DISTINCT no) NO,
+       count(DISTINCT odd_even) OE
+FROM   numbers;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_05c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE INDEX numb_oe_idx
+  ON numbers(odd_even)
+  TABLESPACE indx01;
+
+CREATE INDEX numb_no_idx
+  ON numbers(no)
+  TABLESPACE indx01;
+
+COLUMN segment_name FORMAT a15
+
+SELECT segment_name, blocks
+FROM   dba_segments
+WHERE  segment_name LIKE 'NUMB%'
+AND    segment_type='INDEX';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol12_05d.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+DROP INDEX numb_oe_idx;
+
+DROP INDEX numb_no_idx;
+
+CREATE BITMAP INDEX numb_oe_idx
+   ON numbers(odd_even)
+   TABLESPACE indx01;
+
+CREATE BITMAP INDEX numb_no_idx
+   ON numbers(no)
+   TABLESPACE indx01;
+
+SELECT segment_name, blocks
+FROM   dba_segments
+WHERE  segment_name LIKE 'NUMB%'
+AND    segment_type='INDEX';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_02a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+COLUMN constraint_name FORMAT a25
+COLUMN table_name      FORMAT a10
+COLUMN constraint_type FORMAT a1
+COLUMN deferrable      FORMAT a15
+COLUMN status          FORMAT a10
+
+SELECT constraint_name, table_name, 
+       constraint_type, deferrable, status
+FROM   dba_constraints
+WHERE  table_name IN 
+          ('PRODUCTS','ORDERS','CUSTOMERS')
+AND owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_02b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT index_name,table_name,uniqueness
+FROM   dba_indexes
+WHERE  index_name in 
+          ( SELECT constraint_name
+            FROM   dba_constraints
+            WHERE  table_name IN ('PRODUCTS', 'ORDERS', 'CUSTOMERS')
+            AND    owner='SYSTEM'
+            AND    constraint_type in ('P','U')
+          )
+;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect system/manager
+
+INSERT INTO system.products
+  VALUES(4000,'UNIX Monitor',3620);
+
+
+INSERT INTO system.products
+  VALUES(4000,'NT Monitor', 2400);
+
+COMMIT;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER TABLE system.products
+  ENABLE CONSTRAINT products_prod_code_uk;
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_05a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER TABLE system.products
+ ENABLE NOVALIDATE CONSTRAINT products_prod_code_uk;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_05b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT constraint_name, table_name, 
+       constraint_type, validated, status
+FROM   dba_constraints
+WHERE  table_name = 'PRODUCTS'
+AND    owner='SYSTEM';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_05c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>INSERT INTO system.products
+  VALUES(4000,'Monitor',3000); 
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_06a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+@?/rdbms/admin/utlexcpt 
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_06b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER TABLE system.products
+ ENABLE CONSTRAINT products_prod_code_uk
+ EXCEPTIONS INTO system.exceptions;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_06c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT rowid, prod_code, description
+FROM   system.products
+WHERE  rowid IN ( SELECT row_id
+                  FROM   exceptions
+                  WHERE  table_name='PRODUCTS'
+                )
+;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_06d.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>UPDATE  system.products
+SET     prod_code='4001'
+WHERE   rowid = ( SELECT max(row_id)
+                  FROM   exceptions
+                  WHERE  table_name='PRODUCTS'
+                )
+;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_06e.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>TRUNCATE TABLE exceptions;
+
+ALTER TABLE system.products
+   ENABLE CONSTRAINT products_prod_code_uk
+   EXCEPTIONS INTO system.exceptions;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol13_09.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>TRUNCATE TABLE system.customers;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>@?/rdbms/admin/utlpwdmg
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER USER jeff IDENTIFIED BY jeff;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER USER jeff
+   IDENTIFIED BY super1$;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER PROFILE default LIMIT
+   FAILED_LOGIN_ATTEMPTS 2
+   PASSWORD_LIFE_TIME 30
+   PASSWORD_REUSE_TIME 1/1440
+   PASSWORD_GRACE_TIME 5;
+
+SELECT resource_name, limit 
+FROM   dba_profiles
+WHERE  profile='DEFAULT' 
+AND    resource_type='PASSWORD';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT jeff/superman
+
+CONNECT jeff/super
+
+CONNECT jeff/super1$
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / as sysdba
+
+SET ECHO ON
+
+SELECT username, account_status
+FROM   dba_users;
+
+ALTER USER jeff
+   ACCOUNT UNLOCK;
+
+
+CONNECT jeff/super1$
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SET ECHO ON
+
+CONNECT system/manager
+
+ALTER PROFILE default LIMIT
+   FAILED_LOGIN_ATTEMPTS     UNLIMITED            
+   PASSWORD_LIFE_TIME        UNLIMITED               
+   PASSWORD_REUSE_TIME       UNLIMITED              
+   PASSWORD_REUSE_MAX        UNLIMITED               
+   PASSWORD_VERIFY_FUNCTION  NULL         
+   PASSWORD_LOCK_TIME        UNLIMITED               
+   PASSWORD_GRACE_TIME       UNLIMITED;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol14_08.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT jeff/superman
+
+CONNECT jeff/super
+
+CONNECT jeff/super1$
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE USER bob
+   IDENTIFIED BY crusader
+   DEFAULT TABLESPACE USERS
+   TEMPORARY TABLESPACE temp
+   QUOTA 1M ON USERS
+   QUOTA 1M ON INDX;
+
+@%CLASS_HOME%\STUDENT\LABS\lab15_01.sql
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CREATE USER emi
+   IDENTIFIED BY mary
+   DEFAULT TABLESPACE users
+   TEMPORARY TABLESPACE temp;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>COLUMN username             FORMAT a10
+COLUMN default_tablespace   FORMAT a20
+COLUMN temporary_tablespace FORMAT a15
+
+SELECT username, default_tablespace, 
+       temporary_tablespace
+FROM   dba_users
+WHERE  username IN ('BOB', 'EMI');
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>COLUMN tablespace_name FORMAT a15
+COLUMN user            FORMAT a10
+
+SELECT * 
+FROM   dba_ts_quotas 
+WHERE username = 'BOB';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_05a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect bob/crusader;
+
+ALTER USER bob
+TEMPORARY TABLESPACE users;
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_05b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect bob/crusader; 
+
+ALTER USER bob
+IDENTIFIED BY sam;
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+ALTER USER bob QUOTA 0 ON users;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>DROP USER emi;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol15_08.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>ALTER USER bob 
+   IDENTIFIED BY olink 
+   PASSWORD EXPIRE;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE USER emi
+  IDENTIFIED BY "abcd12"
+  DEFAULT TABLESPACE data01
+  TEMPORARY TABLESPACE temp
+  QUOTA 1M ON data01;
+
+GRANT create session, create table TO emi;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_02a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT emi/"abcd12"
+
+@%CLASS_HOME%\student\labs\lab16_02a.sql
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_02b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager;
+
+INSERT INTO emi.customers
+   SELECT * 
+   FROM   system.customers;
+
+SELECT * FROM emi.customers;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_02c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+GRANT select ON emi.customers TO bob;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT emi/abcd12;
+
+GRANT select ON customers 
+TO bob WITH GRANT OPTION; 
+
+CONNECT system/manager;
+
+COLUMN grantee    FORMAT a8
+COLUMN owner      FORMAT a8
+COLUMN table_name FORMAT a10
+COLUMN grantor    FORMAT a8
+COLUMN privilege  FORMAT a10
+COLUMN grantable  FORMAT a3
+COLUMN hiearchy   FORMAT a3
+
+SELECT * 
+FROM   dba_tab_privs
+WHERE  grantee='BOB';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+CREATE USER trevor IDENTIFIED BY "abcd1?";
+GRANT create session TO trevor;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_05a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT bob/olink
+
+GRANT select ON emi.customers TO trevor;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_05b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT emi/abcd12;
+
+REVOKE select ON customers FROM bob;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_05c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT trevor/abcd1?;
+
+SELECT * 
+FROM emi.customers;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_06a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+GRANT create any table TO emi;
+
+CONNECT emi/abcd12
+
+CREATE TABLE bob.orders
+AS
+SELECT * 
+FROM   orders;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_06b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+SELECT owner, table_name 
+FROM   dba_tables 
+WHERE  table_name IN ('CUSMTERS', 'ORDERS');
+
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol16_07.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+GRANT sysoper TO emi;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+COLUMN privilege FORMAT a20
+COLUMN grantee   FORMAT a10
+
+SELECT  *
+  FROM  dba_sys_privs
+  WHERE grantee = 'RESOURCE';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CREATE ROLE dev;
+
+GRANT create table, create view TO dev;
+
+CONNECT emi/abcd12
+
+GRANT select ON customers to dev;
+
+CONNECT system/manager
+
+GRANT dev TO bob;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_03a.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT system/manager
+
+GRANT dev, resource TO bob;
+
+ALTER USER bob
+   DEFAULT ROLE resource;
+   
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_03b.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect system/manager;
+
+GRANT select_catalog_role TO bob;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_03c.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT pm/pm;
+GRANT hr_role TO sh;
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_04.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT bob/sam
+
+SET ROLE select_catalog_role;
+
+SELECT segment_name
+FROM   dba_rollback_segs
+WHERE  status='ONLINE';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_05.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>connect system/manager
+
+CREATE VIEW cust_view AS 
+   SELECT * 
+   FROM   emi.customers;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol17_06.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SET ECHO ON
+
+CONNECT emi/abcd12
+
+GRANT select ON customers TO system;
+
+CONNECT system/manager
+
+CREATE VIEW cust_view AS
+   SELECT *
+   FROM   emi.customers;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol18_01.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>CONNECT / AS SYSDBA
+
+SET ECHO ON
+
+SELECT parameter, value
+FROM   nls_database_parameters
+WHERE  parameter LIKE '%CHARACTERSET%';
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol18_02.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SELECT   value
+FROM     v$nls_valid_values
+WHERE    parameter = 'CHARACTERSET'
+ORDER BY value;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+	<b>sol18_03.sql</b><br>
+	<table border="1" cellpadding="0" cellspacing="0"><tbody><tr><td>
+	<pre>SET ECHO ON
+
+ALTER SESSION SET nls_date_format = 'DD-MON-YYYY';
+
+ALTER SESSION SET NLS_LANGUAGE = FRENCH;
+
+SELECT sysdate
+FROM   dual;
+
+
+</pre>
+	</td></tr></tbody></table>
+	<br><br>
+
+
+<!-- EMPTY -->
+
+
+
+</body></html>

@@ -1,0 +1,19 @@
+#titre{
+	font-style: bold;
+	text-align: center;
+	color: red;
+}
+#cadre{
+	border: 3px red solid;
+}
+fieldset{
+	width: 50%;
+	margin-left: 25%;
+}
+label{
+	font-size: 18px;
+	font-family: 'montserat',Arial;
+}
+table{
+	padding-bottom: 10%;
+}

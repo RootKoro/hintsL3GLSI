@@ -1,0 +1,18 @@
+ion-content {
+    --background: url("../../assets/background1_4.jpeg") no-repeat center center / cover;
+}
+
+ion-content>div>h1 {
+    font-size: 48px;
+    margin-left: 15%;
+    color: rgb(105, 82, 39);
+    font-weight: 500px;
+}
+
+ion-content>div {
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0px;
+    background-color: rgba(117, 223, 241, 0.534);
+}

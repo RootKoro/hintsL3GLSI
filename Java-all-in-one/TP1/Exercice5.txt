@@ -1,0 +1,15 @@
+1)
+en première ligne nous aurons : 2 3
+en seconde ligne nous aurons  : 4 3
+en troisième ligne nous aurons: 2 3
+en quatrième ligne nous aurons: 4 3
+en cinquième ligne nous aurons: 2 7
+
+2)
+en première ligne nous aurons : 1 2 3 4 5 6
+en seconde ligne nous aurons  : 1 2 12 4 5 6
+en troisième ligne nous aurons: 1 0 12 4 5 6
+en quatrième ligne nous aurons: 1 0 12 4 5 6
+en cinquième ligne nous aurons: 0 0 12 4 5 6
+en sixième ligne nous aurons  : 1 0 12 4 5 6
+en septième ligne nous aurons :
